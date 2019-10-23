@@ -15,9 +15,7 @@
             <div class="panel-body">
                 <form action="/survey_reply" method="POST">
                     {% csrf_token %}
-                    <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
-                    <form class="form-horizontal" method="post">
-                        <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
+                    
                         <div id="div_id_username" class="form-group required">
                             <label for="id_username" class="control-label col-md-4  requiredField"> First name<span
                                     class="asteriskField">*</span> </label>
@@ -44,24 +42,6 @@
                                     placeholder="Your current email address" style="margin-bottom: 10px" type="email" />
                             </div>
                         </div>
-                        <div id="div_id_password1" class="form-group required">
-                            <label for="id_password1" class="control-label col-md-4  requiredField">Password<span
-                                    class="asteriskField">*</span> </label>
-                            <div class="controls col-md-8 ">
-                                <input class="input-md textinput textInput form-control" id="id_password1"
-                                    name="password1" placeholder="Create a password" style="margin-bottom: 10px"
-                                    type="password" />
-                            </div>
-                        </div>
-                        <div id="div_id_password2" class="form-group required">
-                            <label for="id_password2" class="control-label col-md-4  requiredField"> Re:password<span
-                                    class="asteriskField">*</span> </label>
-                            <div class="controls col-md-8 ">
-                                <input class="input-md textinput textInput form-control" id="id_password2"
-                                    name="password2" placeholder="Confirm your password" style="margin-bottom: 10px"
-                                    type="password" />
-                            </div>
-                        </div>
                         <div id="div_id_gender" class="form-group required">
                             <label for="id_gender" class="control-label col-md-4  requiredField"> Preference<span
                                     class="asteriskField">*</span> </label>
@@ -86,12 +66,12 @@
                         <div class="form-group">
                             <div class="aab controls col-md-4 "></div>
                             <div class="controls col-md-8 ">
-                                <input type="submit" name="submit" value="Submit" class="btn btn-primary btn btn-info"
+                                <input type="submit" name="submit" class="btn btn-primary btn btn-info"
                                     id="submit-id-signup" />
                             </div>
                         </div>
 
-                    </form>
+                    <!-- </form> -->
 
                 </form>
             </div>
