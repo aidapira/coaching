@@ -8,5 +8,7 @@ urlpatterns = [
     url(r'^loginprocess$', views.login_process),
     url(r'^login$', views.login),
     url(r'^logout$', views.logout),
-    url(r'^$', views.home_page)
+    url(r'^$', views.home_page),
+    url(r'^survey$', views.survey),
+    url(r'^survey_reply$', views.survey_reply)
 ]

@@ -69,3 +69,10 @@ def login(request):
 def logout(request):
     request.session.clear()
     return redirect('/login_page')
+
+def survey(request):
+    return render(request, "coaching_app/survey.html")
+
+
+def survey_reply(request):
+    return render(request, "coaching_app/congrats.html")
