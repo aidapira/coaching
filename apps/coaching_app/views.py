@@ -17,7 +17,7 @@ def user_process(request):
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value, extra_tags="register")
-        return redirect('/#toregister')
+        return redirect('/login_page')
     else:
         username = request.POST["username"]
         email = request.POST["email"]
@@ -25,7 +25,7 @@ def user_process(request):
         if len(matched_user) > 0:
             messages.error(request, 'Username unavailable',
                            extra_tags="register")
-            return redirect('/#toregister')
+            return redirect('/login_page')
         pw_hash = bcrypt.hashpw(
             request.POST["password"].encode(), bcrypt.gensalt())
         new_user = User.objects.create(
@@ -38,7 +38,7 @@ def registration(request):
     context = {
         "reg_user": User.objects.get(id=request.session["new_user_id"]),
     }
-    return render(request, 'coaching_app/success.html', context)
+    return render(request, 'coaching_app/everyone_account.html', context)
 
 
 def login_process(request):
@@ -63,7 +63,7 @@ def login(request):
     context = {
         "reg_user": User.objects.filter(username=request.session["username"])[0]
     }
-    return render(request, 'coaching_app/success.html', context)
+    return render(request, 'coaching_app/everyone_account.html', context)
 
 
 def logout(request):
@@ -76,3 +76,12 @@ def survey(request):
 
 def survey_reply(request):
     return render(request, "coaching_app/congrats.html")
+
+def my_account(request):
+    return render(request, "coaching_app/my_account.html")
+
+def user_account(request):
+    return render(request, "coaching_app/user_account.html")
+
+def no_survey_reply(request):
+    return render(request, "coaching_app/no_survey_reply.html")
