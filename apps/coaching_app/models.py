@@ -9,10 +9,10 @@ class UserManager(models.Manager):
         errors = {}
         EMAIL_REGEX = re.compile(
             r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-        # if len(postData['first_name']) < 2:
-        #     errors["first_name"] = "User's first name should be at least 2 characters"
-        # if len(postData['last_name']) < 2:
-        #     errors["last_name"] = "User's last name should be at least 2 characters"
+        if len(postData['first_name']) < 2:
+            errors["first_name"] = "User's first name should be at least 2 characters"
+        if len(postData['last_name']) < 2:
+            errors["last_name"] = "User's last name should be at least 2 characters"
         if len(postData['password']) < 8:
             errors["password"] = "User's password should be at least 8 characters"
         if not EMAIL_REGEX.match(postData['email']):
@@ -28,8 +28,8 @@ class UserManager(models.Manager):
 
 
 class User(models.Model):
-    # first_name = models.CharField(max_length=255)
-    # last_name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
     username = models.CharField(max_length=250)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=255)

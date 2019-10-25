@@ -17,7 +17,7 @@ def user_process(request):
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value, extra_tags="register")
-        return redirect('/login_page')
+        return redirect('/login_page#toregister')
     else:
         username = request.POST["username"]
         email = request.POST["email"]
@@ -25,7 +25,7 @@ def user_process(request):
         if len(matched_user) > 0:
             messages.error(request, 'Username unavailable',
                            extra_tags="register")
-            return redirect('/login_page')
+            return redirect('/login_page#toregister')
         pw_hash = bcrypt.hashpw(
             request.POST["password"].encode(), bcrypt.gensalt())
         new_user = User.objects.create(
