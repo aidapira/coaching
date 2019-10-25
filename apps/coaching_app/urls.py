@@ -13,5 +13,8 @@ urlpatterns = [
     url(r'^survey_reply$', views.survey_reply),
     url(r'^my_account$', views.my_account),
     url(r'^user_account$', views.user_account),
-    url(r'^no$', views.no_survey_reply)
+    url(r'^no$', views.no_survey_reply),
+    url(r'^user/update/(?P<userid>\w+)$', views.update),
+    url(r'^user/edit/(?P<userid>\w+)$', views.edit_account)
 ]
+

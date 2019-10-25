@@ -51,7 +51,7 @@
   <div class="container">
 
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">User's full name</h1>
+    <h1 class="mt-4 mb-3">Welcome {{new_user.first_name}}</h1>
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
@@ -60,21 +60,19 @@
       <li class="breadcrumb-item">
         <a href="/login">Notifications</a>
       </li>
-      <li class="breadcrumb-item active">User's Username</li>
+      <li class="breadcrumb-item active">{{new_user.username}}</li>
     </ol>
 
     <!-- Portfolio Item Row -->
     <div class="row">
 
-      <div class="col-md-8">
-        <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+      <div class="col-md-8" style="background-image: url('/static/post.jpg'); height: 400px">
+        <!-- <img class="img-fluid" src="post.jpg" alt="abs"> -->
       </div>
 
       <div class="col-md-4">
-        <h3 class="my-3">Post Title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna
-          varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu
-          convallis placerat, felis enim.</p>
+        <h3 class="my-3">3-minute Abs Workout</h3>
+        <p>This is my 3-minute abs workout for runners. Feeling refreshed! #TGIF</p>
       </div>
 
     </div>
