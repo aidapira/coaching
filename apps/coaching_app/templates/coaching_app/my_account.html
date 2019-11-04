@@ -51,7 +51,7 @@
   <div class="container">
 
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">Welcome {{new_user.first_name}}</h1>
+    <h1 class="mt-4 mb-3">Welcome {{reg_user.first_name}}</h1>
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
@@ -60,7 +60,10 @@
       <li class="breadcrumb-item">
         <a href="/login">Notifications</a>
       </li>
-      <li class="breadcrumb-item active">{{new_user.username}}</li>
+      <li class="breadcrumb-item">
+        <a href="/createpost">Create a Post</a>
+      </li>
+      <li class="breadcrumb-item active">{{reg_user.username}}</li>
     </ol>
 
     <!-- Portfolio Item Row -->

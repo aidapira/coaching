@@ -33,6 +33,7 @@ def user_process(request):
         new_user = User.objects.create(
             first_name=first_name, last_name=last_name, username=username, email=email, password=pw_hash)
         request.session["new_user_id"] = new_user.id
+        request.session["username"] = request.POST["username"]
     return redirect('/registration')
 
 
@@ -51,7 +52,6 @@ def login_process(request):
             request, 'Email or password does not match', extra_tags="login")
         return redirect('/login_page')
     if bcrypt.checkpw(request.POST['password'].encode(), matched_user[0].password.encode()):
-        request.session['username'] = request.POST['username']
         request.session['username'] = request.POST['username']
         return redirect('/login')
     else:
@@ -104,7 +104,7 @@ def update(request, userid):
             messages.error(request, value)
         return redirect('/registration')
     matched_user = User.objects.filter(username=request.POST["username"])
-    if len(matched_user) > 0:
+    if len(matched_user) > 1:
         messages.error(request, 'Username unavailable')
         return redirect('/registration')
     else:

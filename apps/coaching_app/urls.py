@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^user_account$', views.user_account),
     url(r'^no$', views.no_survey_reply),
     url(r'^user/update/(?P<userid>\w+)$', views.update),
-    url(r'^user/edit/(?P<userid>\w+)$', views.edit_account)
+    url(r'^user/edit/(?P<userid>\w+)$', views.edit_account),
+    url(r'^createpost$', views.createpost),
 ]
 
