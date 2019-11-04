@@ -3,6 +3,17 @@ from django.contrib import messages
 import bcrypt
 from .models import *
 
+import argparse
+
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+
+# print(build)
+
+developer_key = 'AIzaSyCVuN7GOKmyHIT0xtpd2WTM4n9pEI-zwXQ'
+youtube_api_service_name = 'youtube'
+youtube_api_version = 'v3'
+
 
 def home_page(request):
     return render(request, 'coaching_app/index.html')
@@ -96,6 +107,7 @@ def user_account(request):
 def no_survey_reply(request):
     return render(request, "coaching_app/no_survey_reply.html")
 
+
 def update(request, userid):
     errors = User.objects.edit_validator(request.POST)
     user_id = userid
@@ -108,7 +120,7 @@ def update(request, userid):
         messages.error(request, 'Username unavailable')
         return redirect('/registration')
     else:
-        updated_user = User.objects.get(id = userid)
+        updated_user = User.objects.get(id=userid)
         updated_user.first_name = request.POST['first_name']
         updated_user.last_name = request.POST['last_name']
         updated_user.bio = request.POST['bio']
@@ -116,7 +128,8 @@ def update(request, userid):
         updated_user.username = request.POST['username']
         # updated_user.password = request.POST['password']
         updated_user.save()
-    return redirect('/user/edit/'+ user_id)
+    return redirect('/user/edit/' + user_id)
+
 
 def edit_account(request, userid):
     context = {
@@ -125,3 +138,77 @@ def edit_account(request, userid):
     }
     return render(request, "coaching_app/my_account.html", context)
 
+
+def sampleworkout(request):
+    return render(request, "coaching_app/sample_workout.html")
+
+
+# def item(request):
+    # print('*'*30)
+    # print(request.POST["search"])
+
+    # print('*'*30)
+
+    # print(request.POST.results)
+
+    # title = request.POST["title"]
+    # print(title)
+    # context = {
+    #     "title": request.POST["title"],
+    #     "videoid": request.POST["videoid"]
+    # }
+    # return render(request, "coaching_app/item.html", context)
+
+def search(request):
+    print('SEARCH ITEM', request.POST['search']),
+    search = request.POST['search'],
+    return redirect('/item')
+
+# def item(request, options):
+#     youtube = build(youtube_api_service_name, youtube_api_version,
+#                     developerKey=developer_key)
+
+#     search_response = youtube.search().list(
+#         q=options,
+#         part='id,snippet',
+#         maxResults=1
+#     ).execute()
+
+
+#     videos = []
+#     channels = []
+#     playlists = []
+
+#     for search_result in search_response.get('items', []):
+#         if search_result['id']['kind'] == 'youtube#video':
+#             videos.append('%s (%s)' % (search_result['snippet']['title'],
+#                                         search_result['id']['videoId']))
+#         elif search_result['id']['kind'] == 'youtube#channel':
+#             channels.append('%s (%s)' % (search_result['snippet']['title'],
+#                                         search_result['id']['channelId']))
+#         elif search_result['id']['kind'] == 'youtube#playlist':
+#             playlists.append('%s (%s)' % (search_result['snippet']['title'],
+#                                             search_result['id']['playlistId']))
+
+# #   print 'Videos:\n', '\n'.join(videos), '\n'
+# #   print 'Channels:\n', '\n'.join(channels), '\n'
+# #   print 'Playlists:\n', '\n'.join(playlists), '\n'
+
+
+#     if __name__ == '__main__':
+#         parser = argparse.ArgumentParser()
+#         parser.add_argument('--q', help='Search term', default='Google')
+#         parser.add_argument('--max-results', help='Max results', default=25)
+#         args = parser.parse_args()
+
+# #   try:
+# #     youtube_search(args)
+# #   except HttpError, e:
+# #     print 'An HTTP error %d occurred:\n%s' % (e.resp.status, e.content)
+
+# # def item(request):
+#     # context = {
+#     #     "title": request.POST['title'],
+#     #     "videoid": request.POST['videoid']
+#     # }
+#     return render(request, "coaching_app/item.html")
