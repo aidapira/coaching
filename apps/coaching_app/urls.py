@@ -16,6 +16,12 @@ urlpatterns = [
     url(r'^no$', views.no_survey_reply),
     url(r'^user/update/(?P<userid>\w+)$', views.update),
     url(r'^user/edit/(?P<userid>\w+)$', views.edit_account),
+<<<<<<< HEAD
     # url(r'^createpost$', views.createpost),
+=======
+    url(r'^sampleworkout$', views.sampleworkout),
+    url(r'^search', views.search)
+    # url(r'^createpost$', views.createpost)
+>>>>>>> 474737487913334a8ff56e98da71e0300a0e196e
 ]
 
