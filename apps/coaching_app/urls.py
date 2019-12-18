@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^user/update/(?P<userid>\w+)$', views.update),
     url(r'^user/edit/(?P<userid>\w+)$', views.edit_account),
     url(r'^sampleworkout$', views.sampleworkout),
-    url(r'^search', views.search)
-    # url(r'^createpost$', views.createpost)
+    url(r'^search', views.search),
+    url(r'^createpost$', views.create_post)
 ]
 

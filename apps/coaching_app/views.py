@@ -3,6 +3,7 @@ from django.contrib import messages
 import bcrypt
 from .models import *
 
+
 import argparse
 
 from googleapiclient.discovery import build
@@ -143,72 +144,15 @@ def sampleworkout(request):
     return render(request, "coaching_app/sample_workout.html")
 
 
-# def item(request):
-    # print('*'*30)
-    # print(request.POST["search"])
-
-    # print('*'*30)
-
-    # print(request.POST.results)
-
-    # title = request.POST["title"]
-    # print(title)
-    # context = {
-    #     "title": request.POST["title"],
-    #     "videoid": request.POST["videoid"]
-    # }
-    # return render(request, "coaching_app/item.html", context)
-
 def search(request):
     print('SEARCH ITEM', request.POST['search']),
     search = request.POST['search'],
     return redirect('/item')
 
-# def item(request, options):
-#     youtube = build(youtube_api_service_name, youtube_api_version,
-#                     developerKey=developer_key)
 
-#     search_response = youtube.search().list(
-#         q=options,
-#         part='id,snippet',
-#         maxResults=1
-#     ).execute()
-
-
-#     videos = []
-#     channels = []
-#     playlists = []
-
-#     for search_result in search_response.get('items', []):
-#         if search_result['id']['kind'] == 'youtube#video':
-#             videos.append('%s (%s)' % (search_result['snippet']['title'],
-#                                         search_result['id']['videoId']))
-#         elif search_result['id']['kind'] == 'youtube#channel':
-#             channels.append('%s (%s)' % (search_result['snippet']['title'],
-#                                         search_result['id']['channelId']))
-#         elif search_result['id']['kind'] == 'youtube#playlist':
-#             playlists.append('%s (%s)' % (search_result['snippet']['title'],
-#                                             search_result['id']['playlistId']))
-
-# #   print 'Videos:\n', '\n'.join(videos), '\n'
-# #   print 'Channels:\n', '\n'.join(channels), '\n'
-# #   print 'Playlists:\n', '\n'.join(playlists), '\n'
-
-
-#     if __name__ == '__main__':
-#         parser = argparse.ArgumentParser()
-#         parser.add_argument('--q', help='Search term', default='Google')
-#         parser.add_argument('--max-results', help='Max results', default=25)
-#         args = parser.parse_args()
-
-# #   try:
-# #     youtube_search(args)
-# #   except HttpError, e:
-# #     print 'An HTTP error %d occurred:\n%s' % (e.resp.status, e.content)
-
-# # def item(request):
-#     # context = {
-#     #     "title": request.POST['title'],
-#     #     "videoid": request.POST['videoid']
-#     # }
-#     return render(request, "coaching_app/item.html")
+def create_post(request):
+    context = {
+        "reg_user": User.objects.filter(username=request.session["username"])[0],
+        # "new_user": User.objects.get(id=userid)
+    }
+    return render(request, "coaching_app/post.html", context)
