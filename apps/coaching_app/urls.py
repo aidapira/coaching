@@ -21,7 +21,7 @@ urlpatterns = [
 =======
     url(r'^sampleworkout$', views.sampleworkout),
 <<<<<<< HEAD
-    url(r'^search', views.search)
+    url(r'^search', views.search),
     # url(r'^createpost$', views.createpost)
 >>>>>>> 474737487913334a8ff56e98da71e0300a0e196e
 =======
