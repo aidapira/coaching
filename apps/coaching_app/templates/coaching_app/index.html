@@ -79,9 +79,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          {% if "username" in request.session %}
           <li class="nav-item">
             <a class="nav-link" href="/login">My Account</a>
           </li>
+          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="/login_page">Sign in</a>
           </li>
@@ -146,15 +148,13 @@
     <div class="row">
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <h4 class="card-header">About Me!</h4>
+          <h4 class="card-header">About Coaching!</h4>
           <div class="card-body">
-            <p class="card-text">Hi! I'm Aida, this year 24 years old (mid-life crisis coming soon). Lived in the middle of the East, North, South &&&
-              Souther of the Cali (San Jose, Irvine, and San Diego!) I'm a civil engineer and a programmer and a
-              healthy/active life enthusiast...ergo, Beachbody coach. Stoked to meetchya!</p>
+            <p class="card-text">Ever wanted to get into the fitness industry, healthy life style, or lifestyle inspo coaching? Well, here is the full package! We're excited to have you here.</p>
           </div>
-          <div class="card-footer">
+          <!-- <div class="card-footer">
             <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="col-lg-4 mb-4">
@@ -168,9 +168,9 @@
             <p class="card-text" style="margin-bottom: 0px">x 30 days superfood shake</p>
             <p class="card-text" style="margin-bottom: 0px">x Support/accountability group with the other ladies & gentlemen</p>
           </div>
-          <div class="card-footer">
+          <!-- <div class="card-footer">
             <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="col-lg-4 mb-4">
@@ -180,9 +180,9 @@
             <p class="card-text">Not sure what to do today? Try a sample Beachbody workout! (:</p>
               <!-- <object style="height: 20px; width: 20px;"><iframe width="1280" height="720" src="https://www.youtube.com/embed/qJDpMyUbunw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></object> -->
           </div>
-          <div class="card-footer">
-            <a href="/sampleworkout" class="btn btn-primary">Sample Workout!</a>
-          </div>
+          <!-- <div class="card-footer"> -->
+            <a href="/sampleworkout" class="btn btn-primary" style="width: 60%;margin-left: 6%; margin-bottom: 45%;" >Sample Workout!</a>
+          <!-- </div> -->
         </div>
       </div>
     </div>

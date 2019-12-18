@@ -20,8 +20,13 @@ urlpatterns = [
     # url(r'^createpost$', views.createpost),
 =======
     url(r'^sampleworkout$', views.sampleworkout),
+<<<<<<< HEAD
     url(r'^search', views.search)
     # url(r'^createpost$', views.createpost)
 >>>>>>> 474737487913334a8ff56e98da71e0300a0e196e
+=======
+    url(r'^search', views.search),
+    url(r'^createpost$', views.create_post)
+>>>>>>> db08217f39e62e40535a399643b3205a626836d3
 ]
 
