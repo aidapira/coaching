@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from . import views
-                    
+
 urlpatterns = [
     url(r'^login_page$', views.login_page),
     url(r'^regprocess$', views.user_process),
