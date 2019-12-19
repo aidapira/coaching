@@ -62,3 +62,5 @@ class Post(models.Model):
     description = models.CharField(max_length=255)
     # post_pic = models.ImageField(upload_to=get_image_path, blank=True, null=True)
     posted_by = models.ForeignKey(User, related_name="posts")
+
+    

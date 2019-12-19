@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^search', views.search),
     # url(r'^createpost$', views.createpost)
     url(r'^search', views.search),
-    url(r'^createpost$', views.create_post)
+    url(r'^createpost$', views.create_post),
+    url(r'^newpost$', views.new_post)
 ]
 

@@ -153,6 +153,14 @@ def search(request):
 def create_post(request):
     context = {
         "reg_user": User.objects.filter(username=request.session["username"])[0],
-        # "new_user": User.objects.get(id=userid)
     }
     return render(request, "coaching_app/post.html", context)
+
+def new_post(request):
+    user = User.objects.get(username=request.session["username"])
+    post_created = Post.objects.create(post_title = request.POST['title'], description = request.POST['description'], posted_by=user)
+    print("*************")
+    print(post_created)
+    print("*************")
+    return redirect('/my_account')
+
